@@ -1,5 +1,32 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Google Authentication
+
+This project is configured with [Auth.js / NextAuth](https://authjs.dev/) and a Google provider.
+
+1. Create a Google OAuth client in Google Cloud Console.
+2. Add an authorized redirect URI:
+	- `http://localhost:3000/api/auth/callback/google`
+3. Copy `.env.example` to `.env.local` and fill the values:
+
+```bash
+AUTH_SECRET=replace-with-a-strong-random-value
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+```
+
+When the app starts, use the home page button to sign in with Google.
+
+### Disable auth in local development
+
+If you want to work locally without Google authentication, set this variable in `.env.local`:
+
+```bash
+AUTH_BYPASS_LOCAL=true
+```
+
+This bypass only applies when `NODE_ENV=development`.
+
 ## Getting Started
 
 First, run the development server:
